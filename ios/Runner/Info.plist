@@ -40,6 +40,12 @@
 	<string>We would like to access your camera to update your profile image</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>We would like to access your gallery to update your profile image</string>
+
+	<key>NSCameraUsageDescription</key>
+    <string>We need access to your camera for XYZ feature.</string>
+    <key>NSPhotoLibraryUsageDescription</key>
+    <string>We need access to your photo library for XYZ feature.</string>
+
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
 	<key>UIBackgroundModes</key>

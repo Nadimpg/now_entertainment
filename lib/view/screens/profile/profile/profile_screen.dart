@@ -18,6 +18,7 @@ import 'package:blog_app/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -79,9 +80,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             width: 2.w,
                           ),
                           shape: BoxShape.circle),
-                      child:
-
-                      controller.profileDetails['image'] != null
+                      child: controller.profileDetails['image'] != null
                           ? Container(
                               height: 108.h,
                               width: 108.w,
@@ -94,9 +93,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   ),
                                   shape: BoxShape.circle),
                             )
-                          :
-
-                      Container(
+                          : Container(
                               height: 108.h,
                               width: 108.w,
                               decoration: const BoxDecoration(
@@ -287,6 +284,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             ),
                           ),
                         ),
+
                         /* GestureDetector(
                             onTap: (){
                               Get.toNamed(AppRoutes.contactUsScreen);

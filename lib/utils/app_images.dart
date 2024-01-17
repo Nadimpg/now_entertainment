@@ -10,4 +10,5 @@ class AppImages{
   static const String profile = "$basePath/profile.png";
   static const String video_1 = "$basePath/video_1.png";
   static const String photo = "$basePath/photo.png";
+  static const String shareOutline = "$basePath/ç.png";
 }

@@ -24,5 +24,6 @@ class AppIcons{
   static const String settings = "$basePath/settings.svg";
   static const String settingsOutline = "$basePath/settings_outline.svg";
   static const String eyeOff = "$basePath/eye-off.svg";
+  static const String share = "$basePath/share.svg";
 
 }

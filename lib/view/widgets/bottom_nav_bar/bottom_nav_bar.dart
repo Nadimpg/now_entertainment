@@ -1,6 +1,7 @@
 
 import 'package:blog_app/utils/app_colors.dart';
 import 'package:blog_app/utils/app_icons.dart';
+import 'package:blog_app/utils/app_images.dart';
 import 'package:blog_app/utils/app_strings.dart';
 import 'package:blog_app/view/screens/home/home/home_screen.dart';
 import 'package:blog_app/view/screens/profile/profile/profile_screen.dart';
@@ -10,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class NavBar extends StatefulWidget {
   final int currentIndex;
@@ -27,18 +29,21 @@ class _NavBarState extends State<NavBar> {
     AppIcons.homeOutline,
     AppIcons.search,
     AppIcons.settingsOutline,
+    AppIcons.share,
   ];
 
   List<String> selectedText = [
     AppStrings.home,
     AppStrings.search,
     "Settings",
+    'Share'
   ];
 
   List<String> unselectedIcon = [
     AppIcons.home,
     AppIcons.search,
     AppIcons.settings ,
+    AppIcons.share ,
   ];
 
   @override
@@ -98,6 +103,10 @@ class _NavBarState extends State<NavBar> {
       ),
     );
   }
+  share()async{
+    const url = 'https://www.nowentertainment.net/';
+    await Share.share(url);
+  }
 
   void onTap(int index) {
     // HomeController homeController = Get.find<HomeController>();
@@ -113,6 +122,11 @@ class _NavBarState extends State<NavBar> {
     }  else if (index == 2) {
       if (!(widget.currentIndex == 2)) {
         Get.offAll(() => const ProfileScreen(),transition: Transition.noTransition);
+      }
+    }
+    else if (index == 3) {
+      if (!(widget.currentIndex == 3)) {
+          share();
       }
     }
   }
