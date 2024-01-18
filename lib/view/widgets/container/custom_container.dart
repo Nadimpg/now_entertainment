@@ -1,16 +1,8 @@
 import 'package:blog_app/main.dart';
 import 'package:blog_app/utils/app_colors.dart';
-import 'package:blog_app/utils/app_icons.dart';
 import 'package:blog_app/view/widgets/image/custom_image.dart';
 import 'package:blog_app/view/widgets/text/custom_text.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
-import 'package:flutter_html_audio/flutter_html_audio.dart';
-import 'package:flutter_html_iframe/flutter_html_iframe.dart';
-import 'package:flutter_html_svg/flutter_html_svg.dart';
-import 'package:flutter_html_table/flutter_html_table.dart';
-import 'package:flutter_html_video/flutter_html_video.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:get/get.dart';
 import 'package:html/parser.dart' as htmlParser;
@@ -33,6 +25,7 @@ class CustomContainer extends StatefulWidget {
   final String calenderIcon;
   final String tagIcon;
   final VoidCallback? onTap;
+  final VoidCallback? onPressed;
   final Widget content;
   CustomContainer(
       {super.key,
@@ -51,7 +44,7 @@ class CustomContainer extends StatefulWidget {
       required this.tagIcon,
       this.isBookMarkImage = true,
       required this.isDetailsDescription,
-      this.isDetails = false});
+      this.isDetails = false, this.onPressed});
 
   @override
   State<CustomContainer> createState() => _CustomContainerState();
@@ -162,21 +155,30 @@ class _CustomContainerState extends State<CustomContainer> {
           ),
 
           ///media name & bookMark
-          Container(
-            padding:
-                const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-            decoration: BoxDecoration(
-                color: AppColors.red_100,
-                borderRadius: BorderRadius.circular(4)),
-            child: CustomText(
-               overflow: TextOverflow.visible,
-              textAlign: TextAlign.start,
-              maxLines: 2,
-              text: widget.mediaText,
-              color: AppColors.red_500,
-              fontWeight: FontWeight.w500,
-              fontSize: 12,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+
+                child: Container(
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
+                  decoration: BoxDecoration(
+                      color: AppColors.red_100,
+                      borderRadius: BorderRadius.circular(4)),
+                  child: CustomText(
+                     overflow: TextOverflow.visible,
+                    textAlign: TextAlign.start,
+                    maxLines: 3,
+                    text: widget.mediaText,
+                    color: AppColors.red_500,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 12,
+                  ),
+                ),
+              ),
+              IconButton(onPressed: widget.onPressed, icon: Icon(Icons.share,size: 24,color: AppColors.red_500,))
+            ],
           ),
           SizedBox(
             height: mq.height * .012,

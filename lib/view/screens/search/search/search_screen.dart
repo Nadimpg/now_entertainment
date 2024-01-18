@@ -209,7 +209,8 @@ class _SearchScreenState extends State<SearchScreen> {
                                                   controller.allPost[index],
                                                   controller.allPost[index]
                                                       .content!.rendered
-                                                      .toString()
+                                                      .toString(),
+                                                  'Most popular'
                                                 ]);
                                           },
 

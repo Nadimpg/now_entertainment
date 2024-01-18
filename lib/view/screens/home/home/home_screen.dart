@@ -62,7 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           SizedBox(),
           CustomImage(
-            imageSrc: AppImages.entertainment,
+            imageSrc: 'assets/images/apple phone number logo.png',
             imageType: ImageType.png,
             size: 52,
           ),
@@ -180,8 +180,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Get.toNamed(AppRoutes.readMoreScreen,
                                         arguments: [
                                           data,
-                                          data.content!.rendered.toString()
+                                          data.content!.rendered.toString(),
+                                          title
                                         ]);
+                                    // Get.toNamed(AppRoutes.readMoreScreen,
+                                    //     arguments: [
+                                    //       data,
+                                    //       data.content!.rendered.toString()
+                                    //     ]);
                                   },
                                   content: Container(
                                     width: mq.width,
