@@ -11,6 +11,7 @@ import 'package:blog_app/view/widgets/container/custom_container.dart';
 import 'package:blog_app/view/widgets/image/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class ReadMoreScreen extends StatefulWidget {
   const ReadMoreScreen({super.key});
@@ -48,7 +49,7 @@ class _ReadMoreScreenState extends State<ReadMoreScreen> {
           ),
           SizedBox(),
 
-          
+
         ],
       )),
       body: LayoutBuilder(
@@ -60,6 +61,10 @@ class _ReadMoreScreenState extends State<ReadMoreScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CustomContainer(
+                  onPressed: ()async{
+                    var url= data.link;
+                    await Share.share(url!);
+                  },
                   isDetails: true,
                   isDetailsDescription:false,
                   isBookMarkImage: false,

@@ -49,7 +49,7 @@ class _SplashScreenState extends State<SplashScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // SizedBox(height: mq.height * .1,),
-                CustomImage(imageSrc: AppImages.entertainment,imageType: ImageType.png,size: 250.h,),
+                CustomImage(imageSrc: 'assets/images/apple phone number logo.png',imageType: ImageType.png,size: 250.h,),
               // SizedBox(height: mq.height * .04,),
                CustomImage(imageSrc: AppImages.gasFire,imageType: ImageType.png,size: 250.h,),
               // SizedBox(height: 16.h,),

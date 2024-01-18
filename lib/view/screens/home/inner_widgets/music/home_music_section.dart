@@ -10,6 +10,7 @@ import 'package:blog_app/view/screens/home/home/inner_widgets/home_fashion/home_
 import 'package:blog_app/view/widgets/container/custom_container.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:share_plus/share_plus.dart';
 
 class HomeMusicSection extends StatefulWidget {
 
@@ -28,9 +29,13 @@ class _HomeMusicSectionState extends State<HomeMusicSection> {
       children: List.generate( widget.data.length, (index) {
         return GestureDetector(
           onTap: (){
-            Get.toNamed(AppRoutes.readMoreScreen,arguments: [widget.data[index],widget.data[index].content!.rendered.toString()]);
+            // Get.toNamed(AppRoutes.readMoreScreen,arguments: [widget.data[index],widget.data[index].content!.rendered.toString()]);
           },
           child: CustomContainer(
+            onPressed: ()async{
+             var url= widget.data[index].link;
+             await Share.share(url!);
+            },
             isDetailsDescription:true,
             isBookMarkImage: false,
             //widget.data[index].yoastHeadJson!.ogDescription.toString()
@@ -43,7 +48,7 @@ class _HomeMusicSectionState extends State<HomeMusicSection> {
             mediaDescription: widget.data[index].excerpt!.rendered.toString(),
             detailsDescription: 'Read more',
             onTap: () {
-              Get.toNamed(AppRoutes.readMoreScreen,arguments: [widget.data[index],widget.data[index].content!.rendered.toString()]);
+              // Get.toNamed(AppRoutes.readMoreScreen,arguments: [widget.data[index],widget.data[index].content!.rendered.toString()]);
             },
             content: Container(
               width: mq.width,
